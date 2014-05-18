@@ -4,6 +4,16 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <!-- 打电话 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 获取通话状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 读取短信 -->
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <!-- 连接网络 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="14" />
@@ -16,15 +26,30 @@
         <activity
             android:name="com.xiaomi.MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name="com.xiaomi.usermsg.MsgActivity"
             android:label="@string/title_activity_msg" >
+        </activity>
+        <activity
+            android:name="com.xiaomi.phone.PhoneActivity"
+            android:label="@string/title_activity_msg" >
+        </activity>
+        <activity
+            android:name="com.xiaomi.sms.SMSActivity"
+            android:label="@string/title_activity_sms" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+<!--                 <category android:name="android.intent.category.LAUNCHER" /> -->
+            </intent-filter>
         </activity>
     </application>
 

@@ -1,0 +1,70 @@
+android常用数据库字段描述
+1.短信数据库
+String strUriInbox = "content://sms";
+Uri uriSms = Uri.parse(strUriInbox);
+Cursor c_groups = managedQuery( uriSms , new String[] { "date","person" }, select, null, "date DESC");
+strColumnName=_id                strColumnValue=48                  //短消息序号  
+strColumnName=thread_id          strColumnValue=16                  //对话的序号（conversation）
+strColumnName=address            strColumnValue=+8613411884805      //发件人地址，手机号
+strColumnName=person              strColumnValue=null                //发件人，返回一个数字就是联系人列表里的序号，陌生人为null
+strColumnName=date                strColumnValue=1256539465022        //日期  long型，想得到具体日期自己转换吧！
+strColumnName=protocol            strColumnValue=0                    //协议
+strColumnName=read                strColumnValue=1                    //是否阅读
+strColumnName=status              strColumnValue=-1                  //状态
+strColumnName=type                strColumnValue=1                    //类型 1是接收到的，2是发出的
+strColumnName=reply_path_present  strColumnValue=0                    //
+strColumnName=subject            strColumnValue=null                //主题
+strColumnName=body                strColumnValue=您好                                                      //短消息内容
+strColumnName=service_center      strColumnValue=+8613800755500      //短信服务中心号码编号，可以得知该短信是从哪里发过来的见下表
+2.联系人数据库
+strColumnName = _sync_id  strColumnValue=null
+strColumnName = primary_organization  strColumnValue=null
+strColumnName = notes  strColumnValue=null
+strColumnName = primary_phone  strColumnValue=1
+strColumnName = status  strColumnValue=null
+strColumnName = im_handle  strColumnValue=null
+strColumnName = _sync_local_id  strColumnValue=null
+strColumnName = im_account  strColumnValue=null
+strColumnName = _sync_time  strColumnValue=null
+strColumnName = im_protocol  strColumnValue=null
+strColumnName = mode  strColumnValue=null
+strColumnName = label  strColumnValue=null
+strColumnName = times_contacted  strColumnValue=0
+strColumnName = name  strColumnValue=é??è?3
+strColumnName = send_to_voicemail  strColumnValue=null
+strColumnName = primary_email  strColumnValue=null
+strColumnName = custom_ringtone  strColumnValue=null
+strColumnName = sort_string  strColumnValue=í?¤í2?í??ío3à?
+strColumnName = _sync_version  strColumnValue=null
+strColumnName = last_time_contacted  strColumnValue=null
+strColumnName = _sync_account  strColumnValue=null
+strColumnName = display_name  strColumnValue=é??è?3
+strColumnName = number_key  strColumnValue=77681111831
+strColumnName = number  strColumnValue=13811118677
+strColumnName = phonetic_name  strColumnValue=null
+strColumnName = _id  strColumnValue=1
+strColumnName = type  strColumnValue=2
+strColumnName = _sync_dirty  strColumnValue=1
+strColumnName = starred  strColumnValue=0
+4.其他数据库
+//Available Uri string
+content://contacts/people    //本地联系人列表信息
+content://contacts/phones    //本地联系人列表信息
+content://call_log/calls/    //本地通话记录        
+content://mms            彩信
+content://mms-sms/threadID
+content://mms-sms/conversations
+content://mms-sms/messages/byphone
+content://mms-sms/undelivered
+content://mms-sms/draft
+
+String strUriInbox        = "content://sms/inbox";        //SMS_INBOX:1 
+String strUriFailed      = "content://sms/failed";      //SMS_FAILED:2 
+String strUriQueued      = "content://sms/queued";      //SMS_QUEUED:3 
+String strUriSent        = "content://sms/sent";        //SMS_SENT:4 
+String strUriDraft        = "content://sms/draft";        //SMS_DRAFT:5 
+String strUriOutbox      = "content://sms/outbox";      //SMS_OUTBOX:6 
+String strUriUndelivered  = "content://sms/undelivered";  //SMS_UNDELIVERED 
+String strUriAll          = "content://sms/all";          //SMS_ALL 
+String strUriConversations= "content://sms/conversations";//you can delete one conversation by thread_id 
+String strUriAll          = "content://sms"              //you can delete one message by _id 
